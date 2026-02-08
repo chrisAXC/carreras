@@ -2,7 +2,7 @@
 session_start();
 require_once 'conexion.php';
 
-// Obtener grupos activos
+
 $query_grupos = "SELECT g.id_grupo, g.clave, c.nombre as carrera 
                  FROM grupos g 
                  JOIN carreras c ON g.id_carrera = c.id_carrera 
@@ -10,7 +10,6 @@ $query_grupos = "SELECT g.id_grupo, g.clave, c.nombre as carrera
                  ORDER BY g.clave";
 $result_grupos = $conexion->query($query_grupos);
 
-// Procesar formulario
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nombre = $conexion->real_escape_string($_POST['nombre']);
     $apellido_paterno = $conexion->real_escape_string($_POST['apellido_paterno']);
@@ -36,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Alumnos</title>
     <style>
-        /* Estilos del index (reutilizados) */
+        
         * {
             margin: 0;
             padding: 0;
@@ -116,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             margin-bottom: 30px;
         }
 
-        /* Estilos específicos para el formulario */
+        
         .form-container {
             background: white;
             padding: 30px;
@@ -226,7 +225,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
     <div class="container">
-        <!-- Sidebar (igual que index.php) -->
+        
         <aside class="sidebar">
             <div class="logo">
                 <h1><i class="fas fa-school"></i> Sistema Escolar</h1>
@@ -260,7 +259,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </ul>
         </aside>
 
-        <!-- Contenido principal -->
+     
         <main class="main-content">
             <div class="header">
                 <h2><i class="fas fa-user-plus"></i> Registro de Alumnos</h2>
@@ -312,7 +311,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 
     <script>
-        // Resaltar enlace activo
+   
         document.addEventListener('DOMContentLoaded', function() {
             const currentPage = window.location.pathname.split('/').pop();
             const navLinks = document.querySelectorAll('.nav-link');
