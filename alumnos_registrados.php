@@ -2,7 +2,7 @@
 session_start();
 require_once 'conexion.php';
 
-// Procesar acciones CRUD
+
 if (isset($_GET['accion'])) {
     $id = $_GET['id'];
     
@@ -19,7 +19,7 @@ if (isset($_GET['accion'])) {
     }
 }
 
-// Obtener alumnos
+
 $query = "SELECT a.*, g.clave as grupo_clave, 
           CONCAT(a.nombre, ' ', a.apellido_paterno, ' ', 
           IFNULL(a.apellido_materno, '')) as nombre_completo
@@ -35,7 +35,7 @@ $result = $conexion->query($query);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alumnos Registrados</title>
     <style>
-        /* Estilos del index (reutilizados) */
+        
         * {
             margin: 0;
             padding: 0;
@@ -115,7 +115,7 @@ $result = $conexion->query($query);
             margin-bottom: 30px;
         }
 
-        /* Estilos específicos para la tabla */
+        
         .table-container {
             background: white;
             padding: 20px;
@@ -232,7 +232,7 @@ $result = $conexion->query($query);
 </head>
 <body>
     <div class="container">
-        <!-- Sidebar (igual que index.php) -->
+      
         <aside class="sidebar">
             <div class="logo">
                 <h1><i class="fas fa-school"></i> Sistema Escolar</h1>
@@ -266,7 +266,7 @@ $result = $conexion->query($query);
             </ul>
         </aside>
 
-        <!-- Contenido principal -->
+      
         <main class="main-content">
             <div class="header">
                 <h2><i class="fas fa-list"></i> Alumnos Registrados</h2>
@@ -330,7 +330,7 @@ $result = $conexion->query($query);
     </div>
 
     <script>
-        // Resaltar enlace activo
+      
         document.addEventListener('DOMContentLoaded', function() {
             const currentPage = window.location.pathname.split('/').pop();
             const navLinks = document.querySelectorAll('.nav-link');
