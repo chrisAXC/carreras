@@ -9,7 +9,7 @@ if (!isset($_GET['id'])) {
 
 $id = $_GET['id'];
 
-// Obtener datos del alumno
+
 $query_alumno = "SELECT * FROM alumnos WHERE id_alumno = $id";
 $result_alumno = $conexion->query($query_alumno);
 $alumno = $result_alumno->fetch_assoc();
@@ -19,7 +19,7 @@ if (!$alumno) {
     exit();
 }
 
-// Obtener grupos activos
+
 $query_grupos = "SELECT g.id_grupo, g.clave, c.nombre as carrera 
                  FROM grupos g 
                  JOIN carreras c ON g.id_carrera = c.id_carrera 
@@ -27,7 +27,6 @@ $query_grupos = "SELECT g.id_grupo, g.clave, c.nombre as carrera
                  ORDER BY g.clave";
 $result_grupos = $conexion->query($query_grupos);
 
-// Procesar actualización
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nombre = $conexion->real_escape_string($_POST['nombre']);
     $apellido_paterno = $conexion->real_escape_string($_POST['apellido_paterno']);
@@ -56,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Alumno</title>
-    <!-- Estilos iguales a registro_alumnos.php -->
+   
     <style>
         * {
             margin: 0;
@@ -296,7 +295,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </ul>
         </aside>
 
-        <!-- Contenido principal -->
+  
         <main class="main-content">
             <div class="header">
                 <h2><i class="fas fa-user-edit"></i> Editar Alumno</h2>
@@ -356,7 +355,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 
     <script>
-        // Resaltar enlace activo
+        
         document.addEventListener('DOMContentLoaded', function() {
             const currentPage = window.location.pathname.split('/').pop();
             const navLinks = document.querySelectorAll('.nav-link');
