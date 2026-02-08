@@ -47,14 +47,28 @@ CREATE TABLE alumnos (
     FOREIGN KEY (id_grupo) REFERENCES grupos(id_grupo)
 );
 
--- Insertar datos iniciales
+--- Insertar carreras correctas
 INSERT INTO carreras (nombre) VALUES 
-('Sistemas'), ('Psicología'), ('Administración'), ('Contabilidad'),
-('Derecho'), ('Medicina'), ('Arquitectura'), ('Ingeniería Civil'),
-('Ingeniería Industrial'), ('Mercadotecnia'), ('Diseño Gráfico'),
-('Enfermería'), ('Nutrición'), ('Odontología'), ('Pedagogía'),
-('Turismo'), ('Gastronomía'), ('Comunicación'), ('Biología'),
-('Química');
+('Administración de Empresas'),
+('Administración de Empresas Turísticas'),
+('Relaciones Internacionales'),
+('Contaduría Pública y Finanzas'),
+('Derecho'),
+('Mercadotecnia y Publicidad'),
+('Gastronomía'),
+('Periodismo y Ciencias de la Comunicación'),
+('Diseño de Modas'),
+('Pedagogía'),
+('Cultura Física y Educación del Deporte'),
+('Idiomas (Inglés y Francés)'),
+('Psicología'),
+('Diseño de Interiores'),
+('Diseño Gráfico'),
+('Ingeniería en Logística y Transporte'),
+('Ingeniero Arquitecto'),
+('Informática Administrativa y Fiscal'),
+('Ingeniería en Sistemas Computacionales'),
+('Ingeniería Mecánica Automotriz');
 
 INSERT INTO turnos (nombre, abreviatura) VALUES 
 ('Matutino', 'M'),

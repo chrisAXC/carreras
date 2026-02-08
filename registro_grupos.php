@@ -373,14 +373,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             const turnoSelect = document.querySelector('select[name="id_turno"]');
             const claveInput = document.querySelector('input[name="clave"]');
             
-            // Mapeo de abreviaturas de carrera (deberías cargarlo desde la BD)
-            const abreviaturas = {
-                '1': 'ISC', '2': 'PSI', '3': 'ADM', '4': 'CON',
-                '5': 'DER', '6': 'MED', '7': 'ARQ', '8': 'ICV',
-                '9': 'IIN', '10': 'MER', '11': 'DIG', '12': 'ENF',
-                '13': 'NUT', '14': 'ODO', '15': 'PED', '16': 'TUR',
-                '17': 'GAS', '18': 'COM', '19': 'BIO', '20': 'QUI'
-            };
+           // Prefijos oficiales de carreras
+const abreviaturas = {
+    '1': 'LAE',    // Administración de Empresas
+    '2': 'LAET',   // Administración de Empresas Turísticas
+    '3': 'LRI',    // Relaciones Internacionales
+    '4': 'LCPF',   // Contaduría Pública y Finanzas
+    '5': 'LD',     // Derecho
+    '6': 'LMP',    // Mercadotecnia y Publicidad
+    '7': 'LG',     // Gastronomía
+    '8': 'LPCC',   // Periodismo y Ciencias de la Comunicación
+    '9': 'LDM',    // Diseño de Modas
+    '10': 'LP',    // Pedagogía
+    '11': 'LCFED', // Cultura Física y Educación del Deporte
+    '12': 'LI',    // Idiomas
+    '13': 'LPS',   // Psicología
+    '14': 'LDI',   // Diseño de Interiores
+    '15': 'LDG',   // Diseño Gráfico
+    '16': 'ILT',   // Ingeniería en Logística y Transporte
+    '17': 'IA',    // Ingeniero Arquitecto
+    '18': 'LIAF',  // Informática Administrativa y Fiscal
+    '19': 'ISC',   // Ingeniería en Sistemas Computacionales
+    '20': 'IMA'    // Ingeniería Mecánica Automotriz
+};
+
             
             function generarClave() {
                 const carreraId = carreraSelect.value;
