@@ -26,7 +26,7 @@ require_once 'conexion.php';
             min-height: 100vh;
         }
 
-        /* Sidebar */
+        
         .sidebar {
             width: 250px;
             background: linear-gradient(180deg, #2c3e50, #34495e);
@@ -81,7 +81,7 @@ require_once 'conexion.php';
             font-size: 18px;
         }
 
-        /* Contenido principal */
+       
         .main-content {
             flex: 1;
             padding: 20px;
@@ -162,7 +162,7 @@ require_once 'conexion.php';
 </head>
 <body>
     <div class="container">
-        <!-- Sidebar -->
+        
         <aside class="sidebar">
             <div class="logo">
                 <h1><i class="fas fa-school"></i> Sistema Escolar</h1>
@@ -196,7 +196,7 @@ require_once 'conexion.php';
             </ul>
         </aside>
 
-        <!-- Contenido principal -->
+       
         <main class="main-content">
             <div class="header">
                 <h2><i class="fas fa-home"></i> Panel de Control</h2>
@@ -208,7 +208,7 @@ require_once 'conexion.php';
                 
                 <div class="stats">
                     <?php
-                    // Obtener estadísticas
+                    
                     $query_alumnos = "SELECT COUNT(*) as total FROM alumnos WHERE activo = 1";
                     $query_grupos = "SELECT COUNT(*) as total FROM grupos WHERE activo = 1";
                     $query_carreras = "SELECT COUNT(*) as total FROM carreras WHERE activa = 1";
@@ -242,7 +242,7 @@ require_once 'conexion.php';
     </div>
 
     <script>
-        // Resaltar enlace activo
+       
         document.addEventListener('DOMContentLoaded', function() {
             const currentPage = window.location.pathname.split('/').pop();
             const navLinks = document.querySelectorAll('.nav-link');
