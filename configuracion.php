@@ -2,7 +2,6 @@
 session_start();
 require_once 'conexion.php';
 
-// Procesar acciones para carreras
 if (isset($_POST['agregar_carrera'])) {
     $nombre = $conexion->real_escape_string($_POST['nombre_carrera']);
     $query = "INSERT INTO carreras (nombre) VALUES ('$nombre')";
@@ -21,15 +20,15 @@ if (isset($_GET['activar_carrera'])) {
     $conexion->query($query);
 }
 
-// Obtener carreras
+
 $query_carreras = "SELECT * FROM carreras ORDER BY activa DESC, nombre";
 $result_carreras = $conexion->query($query_carreras);
 
-// Obtener turnos
+
 $query_turnos = "SELECT * FROM turnos ORDER BY activo DESC, nombre";
 $result_turnos = $conexion->query($query_turnos);
 
-// Obtener grados
+
 $query_grados = "SELECT * FROM grados ORDER BY activo DESC, grado";
 $result_grados = $conexion->query($query_grados);
 ?>
@@ -40,7 +39,7 @@ $result_grados = $conexion->query($query_grados);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Configuración</title>
     <style>
-        /* Estilos del index (reutilizados) */
+       
         * {
             margin: 0;
             padding: 0;
@@ -120,7 +119,7 @@ $result_grados = $conexion->query($query_grados);
             margin-bottom: 30px;
         }
 
-        /* Estilos específicos para configuración */
+       
         .config-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -252,7 +251,7 @@ $result_grados = $conexion->query($query_grados);
 </head>
 <body>
     <div class="container">
-        <!-- Sidebar (igual que index.php) -->
+       
         <aside class="sidebar">
             <div class="logo">
                 <h1><i class="fas fa-school"></i> Sistema Escolar</h1>
@@ -286,14 +285,14 @@ $result_grados = $conexion->query($query_grados);
             </ul>
         </aside>
 
-        <!-- Contenido principal -->
+        
         <main class="main-content">
             <div class="header">
                 <h2><i class="fas fa-cog"></i> Configuración del Sistema</h2>
             </div>
 
             <div class="config-container">
-                <!-- Sección de Carreras -->
+              
                 <div class="config-section">
                     <h3 class="section-title">Carreras</h3>
                     
@@ -347,7 +346,7 @@ $result_grados = $conexion->query($query_grados);
                     </table>
                 </div>
 
-                <!-- Sección de Turnos -->
+               
                 <div class="config-section">
                     <h3 class="section-title">Turnos</h3>
                     
@@ -377,7 +376,7 @@ $result_grados = $conexion->query($query_grados);
                     </table>
                 </div>
 
-                <!-- Sección de Grados -->
+              
                 <div class="config-section">
                     <h3 class="section-title">Grados</h3>
                     
@@ -409,7 +408,7 @@ $result_grados = $conexion->query($query_grados);
     </div>
 
     <script>
-        // Resaltar enlace activo
+       
         document.addEventListener('DOMContentLoaded', function() {
             const currentPage = window.location.pathname.split('/').pop();
             const navLinks = document.querySelectorAll('.nav-link');
