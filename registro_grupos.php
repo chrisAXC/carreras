@@ -2,7 +2,7 @@
 session_start();
 require_once 'conexion.php';
 
-// Obtener datos para los select
+
 $query_carreras = "SELECT * FROM carreras WHERE activa = 1 ORDER BY nombre";
 $query_turnos = "SELECT * FROM turnos WHERE activo = 1 ORDER BY nombre";
 $query_grados = "SELECT * FROM grados WHERE activo = 1 ORDER BY grado";
@@ -11,14 +11,14 @@ $result_carreras = $conexion->query($query_carreras);
 $result_turnos = $conexion->query($query_turnos);
 $result_grados = $conexion->query($query_grados);
 
-// Procesar formulario
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id_carrera = $_POST['id_carrera'];
     $id_grado = $_POST['id_grado'];
     $id_turno = $_POST['id_turno'];
     $clave = $conexion->real_escape_string($_POST['clave']);
     
-    // Verificar si la clave ya existe
+  
     $query_check = "SELECT id_grupo FROM grupos WHERE clave = '$clave'";
     $result_check = $conexion->query($query_check);
     
@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Grupos</title>
     <style>
-        /* Estilos del index (reutilizados) */
+       
         * {
             margin: 0;
             padding: 0;
@@ -126,7 +126,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             margin-bottom: 30px;
         }
 
-        /* Estilos específicos para el formulario */
+        
         .form-container {
             background: white;
             padding: 30px;
@@ -246,7 +246,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
     <div class="container">
-        <!-- Sidebar (igual que index.php) -->
+       
         <aside class="sidebar">
             <div class="logo">
                 <h1><i class="fas fa-school"></i> Sistema Escolar</h1>
@@ -280,7 +280,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </ul>
         </aside>
 
-        <!-- Contenido principal -->
+       
         <main class="main-content">
             <div class="header">
                 <h2><i class="fas fa-users"></i> Registro de Grupos</h2>
@@ -353,7 +353,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 
     <script>
-        // Resaltar enlace activo
+    
         document.addEventListener('DOMContentLoaded', function() {
             const currentPage = window.location.pathname.split('/').pop();
             const navLinks = document.querySelectorAll('.nav-link');
@@ -367,13 +367,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
             });
             
-            // Generar clave automáticamente basada en selecciones
+       
             const carreraSelect = document.querySelector('select[name="id_carrera"]');
             const gradoSelect = document.querySelector('select[name="id_grado"]');
             const turnoSelect = document.querySelector('select[name="id_turno"]');
             const claveInput = document.querySelector('input[name="clave"]');
             
-            // Mapeo de abreviaturas de carrera (deberías cargarlo desde la BD)
+       
             const abreviaturas = {
                 '1': 'ISC', '2': 'PSI', '3': 'ADM', '4': 'CON',
                 '5': 'DER', '6': 'MED', '7': 'ARQ', '8': 'ICV',
@@ -388,12 +388,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 const turnoId = turnoSelect.value;
                 
                 if (carreraId && gradoId && turnoId) {
-                    // Obtener abreviatura de turno
+                  
                     const turnoOption = turnoSelect.options[turnoSelect.selectedIndex];
                     const turnoText = turnoOption.textContent;
                     const turnoAbrev = turnoText.match(/\(([MVX])\)/)[1];
                     
-                    // Generar clave
+                
                     const abreviatura = abreviaturas[carreraId] || 'GEN';
                     const grado = gradoSelect.options[gradoSelect.selectedIndex].text.match(/\d+/)[0];
                     const contador = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
